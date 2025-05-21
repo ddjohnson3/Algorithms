@@ -10,7 +10,6 @@ def inversions(A):
         c, merged = merge_and_count(sorted_A1, sorted_A2)
         return c1 + c2 + c, merged
 
-    # Merge two sorted arrays and count split inversions
     def merge_and_count(A, B):
         i = j = c = 0
         merged = []
@@ -20,13 +19,12 @@ def inversions(A):
                 i += 1
             else:
                 merged.append(B[j])
-                c += len(A) - i  # All remaining elements in A form inversions with B[j]
+                c += len(A) - i  
                 j += 1
-        merged.extend(A[i:])  # Append remaining elements
+        merged.extend(A[i:]) 
         merged.extend(B[j:])
         return c, merged
 
-    # Call helper and return only the inversion count
     count, _ = inv_helper(A)
     return count
 
@@ -39,9 +37,7 @@ def main():
     inst = int(input())
     answers = []
     for _ in range(inst):
-        # Read number of pairs
         pairs = int(input())
-        # Read qs and ps, one per line
         qs = [int(input()) for _ in range(pairs)]
         ps = [int(input()) for _ in range(pairs)]
         coords = list(zip(qs, ps))
